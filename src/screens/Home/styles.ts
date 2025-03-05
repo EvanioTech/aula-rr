@@ -49,6 +49,7 @@ export const styles = StyleSheet.create({
    
     
     caixaAdd: {
+        flex:1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
