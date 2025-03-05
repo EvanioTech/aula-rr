@@ -1,12 +1,16 @@
 import {  useState } from 'react';
-import {Text, View, TextInput, Touchable, TouchableOpacity} from 'react-native';
+import {Text, View, TextInput,  TouchableOpacity,FlatList, ScrollView} from 'react-native';
 import { styles } from './styles';
 import { Participant } from '../../components/Participant';
 
 
 export function Home() {
+    const participants = ['toin', 'quezia', 'matias','lucas','Mayk','Diego','Vitor','andre','alisson','musk','mudo','kaleb']
     function handleAddName() {
         console.log('add')
+    }
+    function handleRemoveName(name: string) {
+        console.log('remove')
     }
     
     
@@ -24,8 +28,17 @@ export function Home() {
                 <Text   style={styles.btnTxt}>+</Text>
             </TouchableOpacity>
             </View>
-            <Participant />
-            <Participant />
+            <ScrollView showsVerticalScrollIndicator={false} >
+            {
+                participants.map((name) => (
+                    <Participant
+                    key={name} 
+                    name={name}
+                     onRemove={() => handleRemoveName(name)} />
+                ))
+            }
+            </ScrollView>
+            
             
 
         </View>
